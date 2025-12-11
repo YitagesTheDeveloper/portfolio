@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --bg-dark-start: rgba(13, 33, 37, 1);
+  --bg-dark-end: rgba(16, 46, 56, 1);
+  --accent-start: rgba(252, 172, 21, 1);
+  --accent-end: rgba(254, 126, 3, 1);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: rgb(56 189 248 / 0.25);
+  color: #e2e8f0;
+}
+
+body {
+  background: radial-gradient(circle at 20% 20%, rgba(252, 172, 21, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(254, 126, 3, 0.1), transparent 35%),
+    linear-gradient(135deg, var(--bg-dark-start), var(--bg-dark-end));
+  color: #e2e8f0;
+}
+
+.glass-surface {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.accent-pill {
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+  color: #0b1c20;
+}
+
+.accent-border {
+  border-image: linear-gradient(90deg, var(--accent-start), var(--accent-end)) 1;
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
