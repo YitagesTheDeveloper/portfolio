@@ -9,15 +9,17 @@ const Contact = ({ socials }) => {
     name: '',
     email: '',
     project_title: '',
-    project_details: ''
+    project_details: '',
+    company: '' // honeypot
   })
   const [status, setStatus] = useState({ type: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [lastSentAt, setLastSentAt] = useState(0)
 
-  // EmailJS configuration (provided)
-  const EMAILJS_SERVICE_ID = 'service_7xo2m8n'
-  const EMAILJS_TEMPLATE_ID = 'template_x32itz8'
-  const EMAILJS_PUBLIC_KEY = 'SYXl1oc0pgIkM1SRE'
+  // EmailJS configuration (use environment variables for safety)
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -33,6 +35,39 @@ const Contact = ({ socials }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    // Simple rate limit: 30s between submissions
+    const now = Date.now()
+    if (now - lastSentAt < 30_000) {
+      setStatus({
+        type: 'error',
+        message: 'Please wait a few seconds before sending another message.'
+      })
+      return
+    }
+
+    // Honeypot check
+    if (formData.company.trim()) {
+      setStatus({ type: 'success', message: 'Thanks! (spam check passed).' })
+      setFormData({
+        name: '',
+        email: '',
+        project_title: '',
+        project_details: '',
+        company: ''
+      })
+      return
+    }
+
+    // Validate EmailJS configuration
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus({
+        type: 'error',
+        message: 'Email service is not configured. Please contact me directly.'
+      })
+      return
+    }
+
     setIsSubmitting(true)
     setStatus({ type: '', message: '' })
 
@@ -59,13 +94,15 @@ const Contact = ({ socials }) => {
         type: 'success',
         message: 'Message sent successfully! I\'ll get back to you soon.'
       })
+      setLastSentAt(now)
       
       // Reset form
       setFormData({
         name: '',
         email: '',
         project_title: '',
-        project_details: ''
+        project_details: '',
+        company: ''
       })
     } catch (error) {
       console.error('EmailJS Error:', error)
@@ -114,6 +151,19 @@ const Contact = ({ socials }) => {
                 className="w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white outline-none transition focus:border-[rgba(254,126,3,0.9)] focus:ring-2 focus:ring-[rgba(254,126,3,0.15)]"
                 placeholder="you@example.com"
                 disabled={isSubmitting}
+              />
+            </div>
+            {/* Honeypot field for spam bots */}
+            <div className="hidden">
+              <label htmlFor="company">Company</label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                value={formData.company}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
               />
             </div>
             <div className="space-y-2">
