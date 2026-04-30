@@ -12,7 +12,7 @@ const Experience = ({ experiences }) => (
     action={<Badge tone="accent">Open to opportunities</Badge>}
   >
     <div className="space-y-4">
-      {experiences.map((exp) => (
+      {experiences.map((exp, index) => (
         <Card key={exp.role} className="border p-5 shadow-sm">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>

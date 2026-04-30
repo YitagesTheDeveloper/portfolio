@@ -169,7 +169,7 @@ const Contact = ({ socials }) => {
             <div className="space-y-2">
               <label className="text-sm font-semibold text-white">Project title</label>
               <input
-                id="projetc_title"
+                id="project_title"
                 name="project_title"
                 type="text"
                 value={formData.project_title}

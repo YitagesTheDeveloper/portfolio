@@ -9,6 +9,7 @@ const projects = [
       'Optimized asset loading and lazy routes for fast first paint.',
       'Clean state patterns for predictable UI updates.',
     ],
+    imageFolder: 'netflix',
   },
   {
     title: 'Amazon Clone',
@@ -20,6 +21,7 @@ const projects = [
       'Composable card, badge, and filter primitives.',
       'Responsive grid with accessible keyboard interactions.',
     ],
+    imageFolder: 'amazon',
   },
   {
     title: 'Hotel Booking',
@@ -31,6 +33,7 @@ const projects = [
       'Authentication, protected routes, and dashboard views.',
       'Server-driven data tables for predictable pagination.',
     ],
+    imageFolder: 'hotel booking',
   },
   {
     title: 'Yitu GPT',
@@ -42,6 +45,20 @@ const projects = [
       'Integrated OpenAI API, MongoDB, and Stripe for payments.',
       'Secure JWT authentication and ImageKit for media handling.',
     ],
+    imageFolder: 'yitu gpt',
+  },
+  {
+    title: 'Plant Doctor Ethiopia',
+    tech: 'Next.js, Gemini AI, MongoDB',
+    github: 'https://github.com/YitagesTheDeveloper/Plant-Doctor',
+    live: 'https://plant-doctor-ethiopia.vercel.app',
+    points: [
+      'AI-powered plant disease diagnosis for Ethiopian farmers using Gemini API.',
+      'Localized in Amharic, Oromo, Tigrigna, and English for maximum accessibility.',
+      'Comprehensive agricultural ecosystem with weather, market trends, and expert advisory.',
+      'PWA-ready with ImageKit integration for optimized visual data handling.',
+    ],
+    imageFolder: 'plant doctor',
   },
 ]
 

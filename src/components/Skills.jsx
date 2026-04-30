@@ -11,7 +11,7 @@ const Skills = ({ skills }) => (
     action={<Badge tone="accent">Ready for Netlify</Badge>}
   >
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {skills.map((group) => (
+      {skills.map((group, index) => (
         <Card
           key={group.title}
           className="flex flex-col gap-3 border p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
