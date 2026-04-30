@@ -42,7 +42,7 @@ npm run build
 
 ## 📱 Live Demo
 
-Visit the live site: [https://yitagesdeveloper.netlify.app](https://yitagesdeveloper.netlify.app)
+Visit the live site: [https://yitagesadane-page.netlify.app/](https://yitagesadane-page.netlify.app/)
 
 ## 📝 License
 
