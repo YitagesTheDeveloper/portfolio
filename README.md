@@ -1,16 +1,53 @@
-# React + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio website built with React and Vite.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Responsive Design** - Works seamlessly on all devices
+- **Dark/Light Theme** - Toggle between themes for better readability
+- **Smooth Animations** - Engaging transitions and interactions
+- **Project Showcase** - Display projects with screenshots and details
+- **Skills Display** - Visual representation of technical skills
+- **Contact Form** - Integrated with EmailJS for messaging
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** - UI framework
+- **Vite** - Build tool
+- **CSS** - Styling
+- **EmailJS** - Email service
 
-## Expanding the ESLint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Clone the repository
+git clone https://github.com/YitagesTheDeveloper/portfolio.git
+
+# Navigate to the project directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+## 🔧 Build for Production
+
+```bash
+npm run build
+```
+
+## 📱 Live Demo
+
+Visit the live site: [https://yitagesdeveloper.netlify.app](https://yitagesdeveloper.netlify.app)
+
+## 📝 License
+
+MIT License
+
+---
+
+Built with ❤️ by Yitages
